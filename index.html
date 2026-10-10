@@ -1046,7 +1046,7 @@ function splitChars(root){
 }
 function animateHero(){
   var h=document.querySelector('#heroCopy');splitChars(h);
-  gsap.from(h.querySelectorAll('.char'),{rotateX:-95,y:30,duration:.9,ease:'back.out(2.2)',stagger:.03,delay:.1});
+  if(isTouch)gsap.from(h.querySelectorAll('.char'),{y:26,duration:.6,ease:'power3.out',stagger:.018,delay:.1,clearProps:'transform'});else gsap.from(h.querySelectorAll('.char'),{rotateX:-95,y:30,duration:.9,ease:'back.out(2.2)',stagger:.03,delay:.1});
   gsap.from(h.querySelectorAll('.lead,.ctas,.hero-stats'),{y:24,duration:.8,ease:'power3.out',stagger:.1,delay:.4});
 }
 function enhance(){
@@ -1114,7 +1114,7 @@ function enhance(){
   ScrollTrigger.getAll().forEach(function(s){s.kill()});
   splitChars(app);
   var heads=app.querySelectorAll('.page-head .char');
-  if(heads.length)gsap.from(heads,{rotateX:-95,y:30,duration:.8,ease:'back.out(2.2)',stagger:.03});
+  if(heads.length){if(isTouch)gsap.from(heads,{y:26,duration:.6,ease:'power3.out',stagger:.018,clearProps:'transform'});else gsap.from(heads,{rotateX:-95,y:30,duration:.8,ease:'back.out(2.2)',stagger:.03})}
   var phimg=app.querySelector('.page-head .ph-bg img');
   if(phimg){gsap.fromTo(phimg,{scale:1.12},{scale:1,duration:1.6,ease:'power3.out'});if(!isTouch)gsap.to(phimg,{yPercent:10,ease:'none',scrollTrigger:{trigger:phimg.closest('.page-head'),scrub:true,start:'top top',end:'bottom top'}})}
   var medal=app.querySelector('.page-head .medal');
