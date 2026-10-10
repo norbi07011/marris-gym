@@ -614,6 +614,23 @@ form .btn{margin-top:20px}
 .wa-hint{margin-top:10px;font-size:13px;color:var(--muted)}
 @media (max-width:560px){.wa-opts{grid-template-columns:1fr}}
 
+/* CAGE HEADER */
+.cage-head{background:radial-gradient(ellipse 50% 80% at 75% 40%,rgba(212,43,48,.22),transparent 60%),radial-gradient(ellipse 60% 100% at 0% 100%,rgba(33,72,184,.35),transparent 60%),var(--plate),var(--steel)}
+.cage-head .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;padding-block:clamp(30px,5vw,60px) clamp(20px,4vw,40px)}
+.cage-stage{position:relative;height:clamp(360px,42vw,560px);min-width:0}
+.cage-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.cage-stage canvas:active{cursor:grabbing}
+.cage-hint{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:10px;font:500 11px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:#d3d6de;padding:9px 14px;border-radius:999px;background:rgba(9,11,18,.7);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);white-space:nowrap;pointer-events:none}
+.cage-ico{display:inline-block;color:var(--red-hot);font-size:14px;animation:sway 2.4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+.cage-ctrl{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px}
+.cage-ctrl button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(16,20,31,.8);color:var(--bone);font:600 18px/1 var(--f-body);cursor:pointer}
+.cage-ctrl button:hover{background:var(--red);border-color:var(--red)}
+.cage-fallback{position:absolute;inset:0;display:none;place-items:center;text-align:center;color:var(--muted);padding:20px}
+.cage-stage.no-gl .cage-fallback{display:grid}.cage-stage.no-gl canvas,.cage-stage.no-gl .cage-hint,.cage-stage.no-gl .cage-ctrl{display:none}
+@media (max-width:820px){.cage-head .wrap{grid-template-columns:1fr}.cage-stage{height:clamp(320px,88vw,440px);margin-inline:calc(var(--gutter)*-1)}}
+@media (prefers-reduced-motion:reduce){.cage-ico{animation:none}}
+
 /* CTA BAND */
 .cta-band{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding:clamp(28px,4vw,48px);border-radius:26px;background:linear-gradient(100deg,var(--red) 0%,#8f1a20 48%,var(--blue-deep) 52%,var(--blue) 100%);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
 .cta-band h2{font-size:clamp(38px,5vw,70px);max-width:16ch}
@@ -700,6 +717,7 @@ nl:{
  reels:{eyebrow:'Marris Gym Reels',title:'Kijk mee in <em>de zaal</em>',lead:'Korte video’s van onze trainingen, seminars en wedstrijden. Tik op een reel om hem met geluid te bekijken.',count:'reels',open:'Bekijk reel',play:'Afspelen / pauzeren',mute:'Geluid aan / uit',close:'Sluiten',prev:'Vorige reel',next:'Volgende reel'},
  wa:{to:'Naar wie stuur je je aanvraag?',kuba:'Poolse trainer · in het Pools',stefan:'Trainer · in het Nederlands',send:'Verstuur via WhatsApp naar',hint:'WhatsApp opent met je bericht al ingevuld. Je hoeft alleen nog op verzenden te tikken.',done:'WhatsApp wordt geopend met je bericht aan {n}. Gaat er niets open? Stuur je aanvraag dan naar {num}.',greet:'Hallo {n}!',intro:'Aanvraag via de website van Marris Gym.'},
  vid:{on:'Geluid aan'},
+ cage:{hint:'Sleep om te draaien · tik om te spinnen',left:'Draai naar links',right:'Draai naar rechts',aria:'Interactieve 3D-kooi (octagon) van Marris Gym. Sleep om te draaien.',fallback:'De 3D-kooi kan in deze browser niet laden.'},
  stars:{eyebrow:'Seminars met topvechters',title:'Walk of <em>Fame</em>',lead:'We organiseren regelmatig seminars en krijgen bezoek van sterren uit de KSW en UFC. Train mee met de besten, gewoon bij ons in de zaal.',cards:[['Seminarium Piotr Kuberski','Seminar · Marris Gym'],['Seminarium Tomasz Sarara','Seminar · Marris Gym'],['Seminarium Krzysztof „Diablo” Włodarczyk','Seminar · Marris Gym'],['Seminarium Michał Michalski','Seminar · KSW · Marris Gym'],['Seminarium Mateusz Rębecki','Seminar · UFC · Marris Gym'],['Seminarium Damian Janikowski','Seminar · KSW · Marris Gym'],['Seminarium Arkadiusz Wrzosek','Seminar · KSW · Marris Gym']],cta:'Wil je weten wie er als volgende komt? Vraag het ons.',btn:'Neem contact op'},
  charity:{eyebrow:'Marris Gym steunt Cancer Fighters',title:'Wij vechten <em>mee</em>',lead:'Marris Gym steunt Cancer Fighters, een stichting die kinderen helpt die vechten tegen ernstige ziektes.',body:'Respect en discipline houden niet op bij de deur van de sportschool. Samen met onze leden zetten we ons in voor kinderen die elke dag hun zwaarste gevecht leveren.',cheque:'Cheque voor oncologie-afdelingen en de kinderen die Cancer Fighters begeleidt',tag:'Cancer Fighters × Marris Gym',alt:'Uitreiking van de cheque van 43 400 voor Cancer Fighters in de zaal van Marris Gym'},
  band:{eyebrow:'Women Only Kickboksen',title:'Voor vrouwen, <span>door vrouwen.</span>',lead:'Onze damestrainingen zijn anders dan anders. Je leert technieken uit verschillende vechtsporten en wordt sterker, fitter en slanker. De les is altijd anders.',btn1:'Probeer een gratis les',btn2:'Ma & do avond',reasons:['Alleen vrouwelijke trainers','Privacy en geen toeschouwers, geschikt voor dames die normaal een hijab dragen','Werk aan conditie, kracht en uithoudingsvermogen','Geschikt voor beginners en gevorderden','De zaal is een kwartier voor de les open. Te laat? Bel even aan.']},
@@ -744,6 +762,7 @@ pl:{
  reels:{eyebrow:'Marris Gym Reels',title:'Zajrzyj na <em>salę</em>',lead:'Krótkie filmy z naszych treningów, seminariów i zawodów. Kliknij rolkę, żeby obejrzeć ją z dźwiękiem.',count:'rolki',open:'Obejrzyj rolkę',play:'Odtwórz / pauza',mute:'Dźwięk wł. / wył.',close:'Zamknij',prev:'Poprzednia rolka',next:'Następna rolka'},
  wa:{to:'Do kogo wysłać zgłoszenie?',kuba:'Polski trener · po polsku',stefan:'Trener · po holendersku',send:'Wyślij przez WhatsApp do',hint:'WhatsApp otworzy się z gotową wiadomością. Wystarczy nacisnąć Wyślij.',done:'Otwieramy WhatsApp z wiadomością do {n}. Nic się nie otworzyło? Wyślij zgłoszenie na numer {num}.',greet:'Cześć {n}!',intro:'Zgłoszenie ze strony Marris Gym.'},
  vid:{on:'Włącz dźwięk'},
+ cage:{hint:'Przeciągnij, aby obrócić · dotknij, aby zakręcić',left:'Obróć w lewo',right:'Obróć w prawo',aria:'Interaktywna klatka 3D (oktagon) Marris Gym. Przeciągnij, aby obrócić.',fallback:'Klatka 3D nie może się załadować w tej przeglądarce.'},
  stars:{eyebrow:'Seminaria z gwiazdami',title:'Aleja <em>gwiazd</em>',lead:'Regularnie organizujemy seminaria, a odwiedzają nas gwiazdy KSW i UFC. Trenuj z najlepszymi, u nas na sali.',cards:[['Seminarium Piotr Kuberski','Seminarium · Marris Gym'],['Seminarium Tomasz Sarara','Seminarium · Marris Gym'],['Seminarium Krzysztof „Diablo” Włodarczyk','Seminarium · Marris Gym'],['Seminarium Michał Michalski','Seminarium · KSW · Marris Gym'],['Seminarium Mateusz Rębecki','Seminarium · UFC · Marris Gym'],['Seminarium Damian Janikowski','Seminarium · KSW · Marris Gym'],['Seminarium Arkadiusz Wrzosek','Seminarium · KSW · Marris Gym']],cta:'Chcesz wiedzieć, kto przyjedzie następny? Zapytaj nas.',btn:'Skontaktuj się'},
  charity:{eyebrow:'Marris Gym wspiera Cancer Fighters',title:'Walczymy <em>razem</em>',lead:'Marris Gym wspiera fundację Cancer Fighters, która pomaga dzieciom walczącym z ciężkimi chorobami.',body:'Szacunek i dyscyplina nie kończą się na drzwiach sali. Razem z naszymi zawodnikami wspieramy dzieci, które każdego dnia toczą swoją najtrudniejszą walkę.',cheque:'Czek dla oddziałów onkologii i podopiecznych Cancer Fighters',tag:'Cancer Fighters × Marris Gym',alt:'Przekazanie czeku na 43 400 dla Cancer Fighters na sali Marris Gym'},
  band:{eyebrow:'Kickboxing Women Only',title:'Dla kobiet, <span>prowadzony przez kobiety.</span>',lead:'Nasze treningi dla pań są inne niż wszystkie. Uczysz się technik z różnych sportów walki i stajesz się silniejsza, sprawniejsza i szczuplejsza. Każdy trening wygląda inaczej.',btn1:'Wypróbuj za darmo',btn2:'Pon. i czw. wieczorem',reasons:['Wyłącznie trenerki','Prywatność, bez widzów. Odpowiednie także dla pań noszących na co dzień hidżab','Pracujesz nad kondycją, siłą i wytrzymałością','Dla początkujących i zaawansowanych','Sala jest otwarta 15 minut przed zajęciami. Spóźniona? Zadzwoń do drzwi.']},
@@ -788,6 +807,7 @@ en:{
  reels:{eyebrow:'Marris Gym Reels',title:'Step into <em>the gym</em>',lead:'Short videos from our training sessions, seminars and fights. Tap a reel to watch it with sound.',count:'reels',open:'Watch reel',play:'Play / pause',mute:'Sound on / off',close:'Close',prev:'Previous reel',next:'Next reel'},
  wa:{to:'Who should get your request?',kuba:'Polish trainer · in Polish',stefan:'Trainer · in Dutch',send:'Send via WhatsApp to',hint:'WhatsApp opens with your message filled in. Just tap send.',done:'Opening WhatsApp with your message to {n}. Nothing opened? Send your request to {num}.',greet:'Hi {n}!',intro:'Request via the Marris Gym website.'},
  vid:{on:'Sound on'},
+ cage:{hint:'Drag to rotate · tap to spin',left:'Rotate left',right:'Rotate right',aria:'Interactive 3D octagon cage of Marris Gym. Drag to rotate.',fallback:'The 3D cage cannot load in this browser.'},
  stars:{eyebrow:'Seminars with top fighters',title:'Walk of <em>Fame</em>',lead:'We regularly host seminars and welcome stars from KSW and UFC. Train with the best, right here in our gym.',cards:[['Seminarium Piotr Kuberski','Seminar · Marris Gym'],['Seminarium Tomasz Sarara','Seminar · Marris Gym'],['Seminarium Krzysztof “Diablo” Włodarczyk','Seminar · Marris Gym'],['Seminarium Michał Michalski','Seminar · KSW · Marris Gym'],['Seminarium Mateusz Rębecki','Seminar · UFC · Marris Gym'],['Seminarium Damian Janikowski','Seminar · KSW · Marris Gym'],['Seminarium Arkadiusz Wrzosek','Seminar · KSW · Marris Gym']],cta:'Want to know who is coming next? Ask us.',btn:'Get in touch'},
  charity:{eyebrow:'Marris Gym supports Cancer Fighters',title:'We fight <em>together</em>',lead:'Marris Gym supports Cancer Fighters, a foundation that helps children fighting serious illness.',body:'Respect and discipline don’t stop at the gym door. Together with our members we stand behind children who fight their hardest battle every day.',cheque:'Cheque for oncology wards and the children Cancer Fighters looks after',tag:'Cancer Fighters × Marris Gym',alt:'Handing over the 43 400 cheque for Cancer Fighters at Marris Gym'},
  band:{eyebrow:'Women Only Kickboxing',title:'For women, <span>by women.</span>',lead:'Our women’s classes are different. You learn techniques from several martial arts and get stronger, fitter and leaner. No two sessions are the same.',btn1:'Try a free class',btn2:'Mon & Thu evening',reasons:['Female trainers only','Privacy and no spectators, suitable for women who usually wear a hijab','Build fitness, strength and endurance','For beginners and advanced','The gym opens 15 minutes before class. Running late? Ring the bell.']},
@@ -834,8 +854,10 @@ var ICON={arrow:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stro
 /* =================== TEMPLATES =================== */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function secHead(h){return '<div class="sec-head"><div><div class="eyebrow">'+h.eyebrow+'</div><h2>'+h.title+'</h2></div><p class="lead">'+h.lead+'</p></div>'}
-var HEAD_IMG={lessen:['hall','50% 55%'],rooster:['choke','50% 42%'],tarieven:['gnp','60% 58%'],kinderfeest:['group','50% 50%'],contact:['hall','50% 60%']};
-function pageHead(r){var h=t.heads[r],hi=HEAD_IMG[r];return '<section class="page-head has-photo">'+(hi?'<div class="ph-bg" aria-hidden="true"><img src="'+IMG[hi[0]]+'" alt="" style="object-position:'+hi[1]+'"></div>':'')+'<img class="medal" src="'+LOGO+'" alt=""><div class="wrap"><div><div class="crumb"><a href="#home">'+t.nav.home+'</a><span>/</span><span>'+t.nav[r]+'</span></div><h1 class="split">'+h.title+'</h1></div><p class="lead">'+h.lead+'</p></div></section>'}
+var HEAD_IMG={lessen:['hall','50% 55%'],rooster:['choke','50% 42%'],kinderfeest:['group','50% 50%'],contact:['hall','50% 60%']};
+function pageHead(r){var h=t.heads[r],hi=HEAD_IMG[r];
+  if(r==='tarieven')return '<section class="page-head cage-head"><div class="wrap"><div><div class="crumb"><a href="#home">'+t.nav.home+'</a><span>/</span><span>'+t.nav[r]+'</span></div><h1 class="split">'+h.title+'</h1><p class="lead" style="margin-top:22px">'+h.lead+'</p></div><div class="cage-stage" id="cageStage"><canvas aria-label="'+esc(t.cage.aria)+'" role="img"></canvas><div class="cage-hint"><span class="cage-ico" aria-hidden="true">↔</span>'+t.cage.hint+'</div><div class="cage-ctrl"><button type="button" data-cage="-1" aria-label="'+t.cage.left+'">↺</button><button type="button" data-cage="1" aria-label="'+t.cage.right+'">↻</button></div><div class="cage-fallback">'+t.cage.fallback+'</div></div></div></section>';
+  return '<section class="page-head has-photo">'+(hi?'<div class="ph-bg" aria-hidden="true"><img src="'+IMG[hi[0]]+'" alt="" style="object-position:'+hi[1]+'"></div>':'')+'<img class="medal" src="'+LOGO+'" alt=""><div class="wrap"><div><div class="crumb"><a href="#home">'+t.nav.home+'</a><span>/</span><span>'+t.nav[r]+'</span></div><h1 class="split">'+h.title+'</h1></div><p class="lead">'+h.lead+'</p></div></section>'}
 function ctaBand(){return '<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-band reveal"><div><h2>'+t.ctaBand.title+'</h2><p>'+t.ctaBand.text+'</p></div><a class="btn" href="#contact">'+t.ctaBand.btn+ICON.arrow+'</a></div></div></section>'}
 function marquee(){var s=t.marquee.map(function(m){return '<span>'+m+'</span>'}).join('');return '<div class="marquee" aria-hidden="true"><div class="marquee-track">'+s+s+'</div></div>'}
 function band(){var b=t.band;return '<section class="sec"><div class="wrap"><div class="band reveal"><div><div class="eyebrow" style="color:#fff">'+b.eyebrow+'</div><h2 style="margin-top:14px">'+b.title+'</h2><p class="lead">'+b.lead+'</p><div class="ctas"><a class="btn btn-red" href="#contact">'+b.btn1+'</a><a class="btn btn-ghost" href="#rooster">'+b.btn2+'</a></div></div><div class="band-side">'+promo('woman','50% 24%','wide')+'<ul class="reasons">'+b.reasons.map(function(r){return '<li>'+ICON.check+esc(r)+'</li>'}).join('')+'</ul></div></div></div></section>'}
@@ -1052,6 +1074,7 @@ function enhance(){
     c.addEventListener('pointerleave',function(){c.style.transform=''});
   })}
   mapDispose=initMap()||null;
+  cageDispose=initCage()||null;
   enhanceReels();
   var walk=app.querySelector('.walk');
   if(walk){
@@ -1097,6 +1120,7 @@ function enhance(){
 }
 function renderPage(scroll){
   if(mapDispose){mapDispose();mapDispose=null}
+  if(cageDispose){cageDispose();cageDispose=null}
   closeReel();
   hero.hidden=route!=='home';
   setBagActive(route==='home');
@@ -1490,6 +1514,118 @@ function initMap(){
   return function(){cancelAnimationFrame(raf);window.removeEventListener('resize',resize);if(io)io.disconnect();
     scene.traverse(function(o){if(o.geometry)o.geometry.dispose();if(o.material){if(o.material.map)o.material.map.dispose();o.material.dispose()}});
     renderer.dispose();try{renderer.forceContextLoss()}catch(e){}};
+}
+
+/* =================== 3D OCTAGON CAGE (prices page) =================== */
+var cageDispose=null;
+function initCage(){
+  var wrap=document.getElementById('cageStage');if(!wrap)return null;
+  if(!window.THREE){wrap.classList.add('no-gl');return null}
+  var canvas=wrap.querySelector('canvas'),renderer;
+  try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true})}catch(e){wrap.classList.add('no-gl');return null}
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+  var scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(34,1,.1,200);
+  var RO=5,PH=2.5,BASE=.6,N=8;
+  scene.add(new THREE.HemisphereLight(0x9fb2ff,0x0b0d16,.55));
+  var key=new THREE.SpotLight(0xfff1e2,3.2,40,Math.PI/5,.6,1);key.position.set(0,14,2);key.target.position.set(0,0,0);scene.add(key,key.target);
+  var redL=new THREE.PointLight(0xff3a3a,2.2,26);redL.position.set(-8,4,4);scene.add(redL);
+  var blueL=new THREE.PointLight(0x3d6bff,2.4,26);blueL.position.set(8,4,-3);scene.add(blueL);
+  var cage=new THREE.Group();scene.add(cage);
+
+  // --- floor texture: canvas mat with logo, red/blue octagon band ---
+  var fc=document.createElement('canvas');fc.width=fc.height=1024;var g=fc.getContext('2d'),C=512,FR=500;
+  var floorTex=new THREE.CanvasTexture(fc);floorTex.encoding=THREE.sRGBEncoding;floorTex.anisotropy=renderer.capabilities.getMaxAnisotropy();
+  function oct(r){g.beginPath();for(var k=0;k<N;k++){var a=k*Math.PI/4,x=C+Math.cos(a)*r,y=C-Math.sin(a)*r;k?g.lineTo(x,y):g.moveTo(x,y)}g.closePath()}
+  function paintFloor(img){
+    var rg=g.createRadialGradient(C,C,40,C,C,FR);rg.addColorStop(0,'#232838');rg.addColorStop(1,'#0f121a');g.fillStyle=rg;g.fillRect(0,0,1024,1024);
+    for(var i=0;i<9000;i++){g.fillStyle='rgba(255,255,255,'+(Math.random()*.03)+')';g.fillRect(Math.random()*1024,Math.random()*1024,2,2)}
+    for(var k=0;k<N;k++){var a0=k*Math.PI/4,a1=(k+1)*Math.PI/4;g.beginPath();g.moveTo(C+Math.cos(a0)*FR,C-Math.sin(a0)*FR);g.lineTo(C+Math.cos(a1)*FR,C-Math.sin(a1)*FR);g.lineTo(C+Math.cos(a1)*(FR-46),C-Math.sin(a1)*(FR-46));g.lineTo(C+Math.cos(a0)*(FR-46),C-Math.sin(a0)*(FR-46));g.closePath();g.fillStyle=k%2?'#2148b8':'#d42b30';g.fill()}
+    g.strokeStyle='rgba(220,224,232,.35)';g.lineWidth=3;oct(FR-60);g.stroke();
+    g.setLineDash([10,12]);oct(250);g.stroke();g.setLineDash([]);
+    if(img&&img.naturalWidth){g.save();g.beginPath();g.arc(C,C,170,0,Math.PI*2);g.clip();g.drawImage(img,C-170,C-170,340,340);g.restore();g.beginPath();g.arc(C,C,176,0,Math.PI*2);g.lineWidth=8;g.strokeStyle='#c9ced8';g.stroke()}
+    g.textAlign='center';g.textBaseline='middle';g.fillStyle='rgba(238,240,244,.9)';g.font='900 64px "Big Shoulders Display", Impact, sans-serif';g.fillText('MARRIS GYM',C,C-262);
+    g.fillStyle='rgba(238,240,244,.55)';g.font='600 26px "JetBrains Mono", monospace';g.fillText('LEGION OCTAGON ACADEMY',C,C+262);
+    floorTex.needsUpdate=true;
+  }
+  var logo=new Image();paintFloor(null);logo.onload=function(){paintFloor(logo)};logo.src=LOGO;
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){paintFloor(logo)});
+  var floorMat=new THREE.MeshStandardMaterial({map:floorTex,roughness:.85,metalness:0,emissive:0xffffff,emissiveMap:floorTex,emissiveIntensity:.06});
+  var floor=new THREE.Mesh(new THREE.CircleGeometry(RO,N),floorMat);floor.rotation.set(-Math.PI/2,0,Math.PI/8);floor.position.y=BASE+.01;cage.add(floor);
+  // platform
+  var plat=new THREE.Mesh(new THREE.CylinderGeometry(RO*1.06,RO*1.12,BASE,N,1),new THREE.MeshStandardMaterial({color:0x10131c,roughness:.6,metalness:.3}));plat.rotation.y=Math.PI/8;plat.position.y=BASE/2;cage.add(plat);
+  var skirt=new THREE.Mesh(new THREE.CylinderGeometry(RO*1.085,RO*1.09,.12,N,1,true),new THREE.MeshBasicMaterial({color:0xd42b30}));skirt.rotation.y=Math.PI/8;skirt.position.y=BASE*.55;cage.add(skirt);
+  var glow=new THREE.Mesh(new THREE.RingGeometry(RO*1.15,RO*1.6,64),new THREE.MeshBasicMaterial({color:0xd42b30,transparent:true,opacity:.18,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));glow.rotation.x=-Math.PI/2;glow.position.y=.02;cage.add(glow);
+
+  // vertices in X/-Z
+  var V=[];for(var k=0;k<N;k++){var th=k*Math.PI/4+Math.PI/8;V.push(new THREE.Vector3(Math.cos(th)*RO,0,-Math.sin(th)*RO))}
+  var metal=new THREE.MeshStandardMaterial({color:0x22252e,roughness:.35,metalness:.9});
+  var padR=new THREE.MeshStandardMaterial({color:0xc4232a,roughness:.55}),padB=new THREE.MeshStandardMaterial({color:0x1d3fa6,roughness:.55}),padK=new THREE.MeshStandardMaterial({color:0x111318,roughness:.6});
+  function rod(a,b,r,mat){var d=b.clone().sub(a),len=d.length(),m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,14),mat);m.position.copy(a).add(b).multiplyScalar(.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());cage.add(m);return m}
+  V.forEach(function(v,k){
+    rod(new THREE.Vector3(v.x,BASE,v.z),new THREE.Vector3(v.x,BASE+PH,v.z),.09,metal);
+    var pad=new THREE.Mesh(new THREE.CylinderGeometry(.2,.2,PH*.92,20),k%2?padB:padR);pad.position.set(v.x,BASE+PH*.48,v.z);cage.add(pad);
+    var cap=new THREE.Mesh(new THREE.SphereGeometry(.2,20,12,0,Math.PI*2,0,Math.PI/2),k%2?padB:padR);cap.position.set(v.x,BASE+PH*.94,v.z);cage.add(cap);
+  });
+  // chain-link fence texture
+  var mc=document.createElement('canvas');mc.width=mc.height=128;var mg=mc.getContext('2d');mg.clearRect(0,0,128,128);mg.strokeStyle='#b8bfcc';mg.lineWidth=5;mg.lineCap='round';
+  [[0,0,128,128],[-64,0,64,128],[64,0,192,128],[128,0,0,128],[64,0,-64,128],[192,0,64,128]].forEach(function(l){mg.beginPath();mg.moveTo(l[0],l[1]);mg.lineTo(l[2],l[3]);mg.stroke()});
+  var side=2*RO*Math.sin(Math.PI/8),FH=PH*.82;
+  var meshTex=new THREE.CanvasTexture(mc);meshTex.wrapS=meshTex.wrapT=THREE.RepeatWrapping;meshTex.repeat.set(side/.32,FH/.32);meshTex.anisotropy=8;
+  var fenceMat=new THREE.MeshStandardMaterial({map:meshTex,transparent:true,alphaTest:.35,side:THREE.DoubleSide,metalness:.8,roughness:.35,color:0xd8dde6});
+  var DOOR=6,door=null,doorOpen=1.25,doorSign=1;
+  for(var i=0;i<N;i++){
+    var a=V[i],b=V[(i+1)%N],phi=(i+1)*Math.PI/4,mid=a.clone().add(b).multiplyScalar(.5);
+    var mk=function(){var p=new THREE.Mesh(new THREE.PlaneGeometry(side*.94,FH),fenceMat);return p};
+    if(i===DOOR){ // hinged door, swung open outwards
+      door=new THREE.Group();door.position.set(b.x,BASE+.08+FH/2,b.z);door.rotation.y=phi+Math.PI/2;cage.add(door);
+      var xa=new THREE.Vector3(Math.cos(door.rotation.y),0,-Math.sin(door.rotation.y)),toA=a.clone().sub(b);
+      var s=toA.dot(xa)>0?1:-1;var dp=mk();dp.position.x=s*side*.47;door.add(dp);
+      var fr=new THREE.Mesh(new THREE.BoxGeometry(side*.94,.06,.06),metal);fr.position.set(s*side*.47,FH/2,0);door.add(fr);
+      var fr2=fr.clone();fr2.position.y=-FH/2;door.add(fr2);
+      // pick the swing direction that moves the door away from the centre
+      var base=door.rotation.y,best=0,bestR=-1;[1,-1].forEach(function(sg){door.rotation.y=base+sg*doorOpen;door.updateMatrixWorld();var c=new THREE.Vector3(s*side*.47,0,0);door.localToWorld(c);var rr=Math.hypot(c.x,c.z);if(rr>bestR){bestR=rr;best=sg}});
+      doorSign=best;door.userData.base=base;door.rotation.y=base+best*doorOpen;
+      // steps up to the door
+      for(var st=0;st<3;st++){var sb=new THREE.Mesh(new THREE.BoxGeometry(side*.8,.2,.5),new THREE.MeshStandardMaterial({color:0x181b24,roughness:.7,metalness:.2}));var out=mid.clone().normalize();sb.position.set(mid.x*1.0+out.x*(RO*.18+.32+st*.5),BASE-.2*(st+1)+.1,mid.z*1.0+out.z*(RO*.18+.32+st*.5));sb.rotation.y=phi+Math.PI/2;cage.add(sb)}
+    }else{var p=mk();p.position.set(mid.x,BASE+.08+FH/2,mid.z);p.rotation.y=phi+Math.PI/2;cage.add(p)}
+    // padded top rail + bottom rail
+    var t0=new THREE.Vector3(a.x,BASE+PH*.9,a.z),t1=new THREE.Vector3(b.x,BASE+PH*.9,b.z);
+    if(i!==DOOR){rod(t0,t1,.07,padK);rod(new THREE.Vector3(a.x,BASE+.1,a.z),new THREE.Vector3(b.x,BASE+.1,b.z),.05,metal)}
+    else rod(t0,t1,.07,padK);
+  }
+  // overhead light rig
+  var rig=new THREE.Mesh(new THREE.TorusGeometry(RO*.9,.06,8,64),metal);rig.rotation.x=Math.PI/2;rig.position.y=BASE+PH+3.2;cage.add(rig);
+  var cone=new THREE.Mesh(new THREE.ConeGeometry(RO*1.05,3.2,48,1,true),new THREE.MeshBasicMaterial({color:0xfff1e2,transparent:true,opacity:.05,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));cone.position.y=BASE+PH+1.6;cage.add(cone);
+  // dust
+  var DN=reduce?80:260,dg=new THREE.BufferGeometry(),dp2=new Float32Array(DN*3),ds=new Float32Array(DN);
+  for(var i=0;i<DN;i++){var rr=Math.random()*RO,aa=Math.random()*Math.PI*2;dp2[i*3]=Math.cos(aa)*rr;dp2[i*3+1]=BASE+Math.random()*6;dp2[i*3+2]=Math.sin(aa)*rr;ds[i]=.1+Math.random()*.3}
+  dg.setAttribute('position',new THREE.BufferAttribute(dp2,3));
+  cage.add(new THREE.Points(dg,new THREE.PointsMaterial({color:0xfff1e2,size:.05,transparent:true,opacity:.6,depthWrite:false,blending:THREE.AdditiveBlending})));
+
+  // --- interaction: drag to rotate (mouse + touch), tap to spin ---
+  var rot=-.5,vel=reduce?0:.35,tilt=0,drag=null,idle=0,flash=0;
+  canvas.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;drag={x:e.clientX,y:e.clientY,t:performance.now(),moved:false,lx:e.clientX};idle=0;try{canvas.setPointerCapture(e.pointerId)}catch(_){}});
+  canvas.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.lx;drag.lx=e.clientX;if(Math.abs(e.clientX-drag.x)>6)drag.moved=true;if(drag.moved){rot+=dx*.012;vel=dx*.6}});
+  function end(){if(!drag)return;if(!drag.moved){vel+=(Math.random()<.5?-1:1)*7;flash=1;try{if(navigator.vibrate)navigator.vibrate(12)}catch(_){}}drag=null;idle=0}
+  canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',function(){drag=null});
+  wrap.querySelectorAll('[data-cage]').forEach(function(b){b.addEventListener('click',function(){vel+=(+b.dataset.cage)*5;idle=0})});
+
+  function resize(){var w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;var d=w/h<1?21:16.5;camera.position.set(0,7.2*(d/16.5),d);camera.lookAt(0,1.3,0);camera.updateProjectionMatrix()}
+  window.addEventListener('resize',resize);resize();
+  var visible=true,io=null;if('IntersectionObserver' in window){io=new IntersectionObserver(function(en){visible=en[0].isIntersecting},{threshold:0});io.observe(wrap)}
+  var clock=new THREE.Clock(),time=0,raf=0;
+  function tick(){raf=requestAnimationFrame(tick);var dt=Math.min(clock.getDelta(),.033);if(!visible)return;time+=dt;idle+=dt;
+    if(!drag){vel*=Math.pow(.35,dt);if(!reduce&&idle>1.5)vel+=(.35-vel)*Math.min(1,dt*.8);rot+=vel*dt}
+    cage.rotation.y=rot;
+    tilt+=((reduce?0:Math.sin(time*.4)*.04)-tilt)*.05;cage.rotation.x=tilt;
+    if(door&&!reduce){door.rotation.y=door.userData.base+doorSign*(doorOpen+Math.sin(time*.9)*.08)}
+    flash*=Math.pow(.05,dt);floorMat.emissiveIntensity=.06+flash*.35;key.intensity=3.2+flash*2;
+    if(!reduce){var pa=dg.attributes.position.array;for(var i=0;i<DN;i++){pa[i*3+1]+=ds[i]*dt;if(pa[i*3+1]>BASE+6)pa[i*3+1]=BASE}dg.attributes.position.needsUpdate=true}
+    redL.intensity=2.2+Math.sin(time*1.3)*.4;blueL.intensity=2.4+Math.cos(time*1.1)*.4;
+    renderer.render(scene,camera)}
+  tick();
+  return function(){cancelAnimationFrame(raf);window.removeEventListener('resize',resize);if(io)io.disconnect();scene.traverse(function(o){if(o.geometry)o.geometry.dispose();if(o.material){if(o.material.map)o.material.map.dispose();o.material.dispose()}});renderer.dispose();try{renderer.forceContextLoss()}catch(e){}};
 }
 
 /* =================== BOOT =================== */
